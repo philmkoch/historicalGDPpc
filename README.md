@@ -10,7 +10,7 @@ The purpose of this repository is twofold. First, we want to provide explanation
 
 Please find a detailed README in the repo.
 
-<b>\<a href="<https://philmkoch.github.io/historicalGDPpc_app/>". target="\_blank" rel="noopener noreferrer"\>Click here to explore the dataset interactively. </a>.</b>
+<a href="https://philmkoch.github.io/historicalGDPpc_app/" target="_blank" rel="noopener noreferrer">Click here to explore the dataset interactively.</a>
 
 <p xmlns:cc="http://creativecommons.org/ns#">
 
