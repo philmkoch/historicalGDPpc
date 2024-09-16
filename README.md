@@ -6,6 +6,8 @@
 
 ##### v1 - September 2024
 
+<a href="https://www.pnas.org/doi/10.1073/pnas.2402060121" target="_blank" rel="noopener noreferrer">Click here to find our paper in PNAS.</a>
+
 The purpose of this repository is twofold. First, we want to provide explanations for the final dataset that we publish. Our dataset quadruples the availability of historical GDP per capita estimates using machine learning. Second, we want to provide detailed information on the code to ensure replicability.
 
 Please find a detailed README in the repo.
