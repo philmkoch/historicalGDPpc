@@ -4,7 +4,7 @@
 
 #### by Philipp Koch, Viktor Stojkoski & César A. Hidalgo
 
-##### v1 - September 2024
+##### v2 - December 2024
 
 <a href="https://www.pnas.org/doi/10.1073/pnas.2402060121" target="_blank" rel="noopener noreferrer">Click here to find our paper in PNAS.</a>
 

@@ -16,8 +16,8 @@ HPI_incl <- "Y" # Should HPI be included in the derivation of features? "Y" yes 
 rescale_regions <- "Y" # Should regional estimates be rescaled to match country-level data? "Y" yes or "N" no
 shapley <- "Y" # Should shapley values be computed? "Y" yes or "N" no
 standarderrors <- "Y" # Should standard errors be computed? "Y" yes or "N" no
-n_bootstraps <- 250 # number of bootstraps for computing standard errors
-bootstrap_CI <- c(0.1, 0.9) # confidence interval for standard errors
+n_bootstraps <- 500 # number of bootstraps for computing standard errors
+bootstrap_CI <- c(0.05, 0.95) # confidence interval for standard errors
 n_draws <- 500 # number of draws to assess model performance
 
 version <- paste0(Sys.Date(), "_COMPLETE")
@@ -39,36 +39,38 @@ dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML"))
 dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/countries"))
 dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/regions"))
 
-source("./scripts/01_load_famousindividuals.R")
+# The following lines (commented out) are precalculations, which require the data on famous individuals. All details provided in the README.
 
-source("./scripts/02_load_GDPdata.R")
-
-source("./scripts/03_load_populationdata.R")
-
-# reorder columns
-data <- fulldata %>% select(ID, ID2, period, year, country, country_0:population, births:avg_age_immigrants, architect_born:year2000)
-
-rownames(data) <- data$ID
-
-# # We do not make out-of-sample predictions for locations with very few births or deaths
-# # Hence, we remove those observations from the dataset
-data <- subset(data, !is.na(GDPpc) |
-                 ( (period < 8 & births >= 3 & deaths >= 3) |
-                     (period > 7 & period < 15 & births >= 5 & deaths >= 5) |
-                     (period == 15 & births >= 10 & deaths >= 10))
-)
-
-source("./scripts/misc_summarytable.R")
-
-if(HPI_incl == "Y"){
-  source("./scripts/04_HPIadjustment.R")
-}
-
-source("./scripts/05_add_SVD_and_ECI.R")
-
-source("./scripts/06_generate_maps.R")
-
-saveRDS(data, "./misc/data_inputToML.rds")
+# source("./scripts/01_load_famousindividuals.R")
+# 
+# source("./scripts/02_load_GDPdata.R")
+# 
+# source("./scripts/03_load_populationdata.R")
+# 
+# # reorder columns
+# data <- fulldata %>% select(ID, ID2, period, year, country, country_0:population, births:avg_age_immigrants, architect_born:year2000)
+# 
+# rownames(data) <- data$ID
+# 
+# # # We do not make out-of-sample predictions for locations with very few births or deaths
+# # # Hence, we remove those observations from the dataset
+# data <- subset(data, !is.na(GDPpc) |
+#                  ( (period < 8 & births >= 3 & deaths >= 3) |
+#                      (period > 7 & period < 15 & births >= 5 & deaths >= 5) |
+#                      (period == 15 & births >= 10 & deaths >= 10))
+# )
+# 
+# source("./scripts/misc_summarytable.R")
+# 
+# if(HPI_incl == "Y"){
+#   source("./scripts/04_HPIadjustment.R")
+# }
+# 
+# source("./scripts/05_add_SVD_and_ECI.R")
+# 
+# source("./scripts/06_generate_maps.R")
+# 
+# saveRDS(data, "./misc/data_inputToML.rds")
 
 data <- readRDS("./misc/data_inputToML.rds")
 
