@@ -74,6 +74,9 @@ dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/regions"))
 
 data <- readRDS("./misc/data_inputToML.rds")
 
+# If you intend to replicate the original version of the estimation as published in PNAS, you should change the input data here to:
+# data <- readRDS("./misc/data_inputToML_v1.rds")
+
 labeled_data <- subset(data, is.na(GDPpc)==F)
 unlabeled_data <- subset(data, is.na(GDPpc))
 
