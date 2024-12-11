@@ -84,6 +84,7 @@ unlabeled_data <- subset(data, is.na(GDPpc))
 
 'This computes the model performance metrics, i.e. Fig. 2 in the main manuscript'
 'To reproduce Fig. 2 exactly, one needs to use the original training data (see lines 77-78)'
+'Beware that it takes quite some time to run it'
 source("./scripts/07_model_performance.R")
 
 # FULL MODEL AND RESULTS
