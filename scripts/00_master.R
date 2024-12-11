@@ -39,7 +39,7 @@ dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML"))
 dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/countries"))
 dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/regions"))
 
-# The following lines (commented out) are precalculations, which require the data on famous individuals. All details provided in the README.
+'The following lines (commented out) are precalculations, which require the data on famous individuals. All details provided in the README.'
 
 # source("./scripts/01_load_famousindividuals.R")
 # 
@@ -74,7 +74,7 @@ dir.create(paste0("./genfiles_", version, "/maps/Maddison+ML/regions"))
 
 data <- readRDS("./misc/data_inputToML.rds")
 
-# If you intend to replicate the original version of the estimation as published in PNAS, you should change the input data here to:
+'If you intend to replicate the original version of the estimation as published in PNAS, you should change the input data here to:'
 # data <- readRDS("./misc/data_inputToML_v1.rds")
 
 labeled_data <- subset(data, is.na(GDPpc)==F)
@@ -82,6 +82,8 @@ unlabeled_data <- subset(data, is.na(GDPpc))
 
 # MODEL PERFORMANCE
 
+'This computes the model performance metrics, i.e. Fig. 2 in the main manuscript'
+'To reproduce Fig. 2 exactly, one needs to use the original training data (see lines 77-78)'
 source("./scripts/07_model_performance.R")
 
 # FULL MODEL AND RESULTS
